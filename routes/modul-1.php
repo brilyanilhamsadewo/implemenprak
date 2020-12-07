@@ -12,3 +12,5 @@ Route::post('/customer/req-data-kelurahan', 'modul1\CustomerController@req_data_
 
 Route::post('/customer/tambah-1', 'modul1\CustomerController@store_customer1');
 Route::post('/customer/tambah-2', 'modul1\CustomerController@store_customer2');
+
+Route::post('/customer/import_excel', 'modul1\CustomerController@import_excel');
