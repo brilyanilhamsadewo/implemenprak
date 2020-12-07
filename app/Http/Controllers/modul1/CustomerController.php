@@ -7,8 +7,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Customer;
 use App\Imports\CustomerImport;
-use App\Imports\SiswaImport;
 use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\HeadingRowImport;
+use Redirect;
+use Storage;
 
 class CustomerController extends Controller
 {
@@ -165,5 +167,67 @@ class CustomerController extends Controller
  
 		// alihkan halaman kembali
 		return redirect('/customer');
-	}
+    }
 }
+    
+//     public function import_excel (Request $request) 
+//     {
+//         $this->validate($request, [
+// 			'file_excel' => 'required|mimes:csv,xls,xlsx'
+//         ]);
+        
+//         $file_excel = $request->file('file_excel');
+//         $nama_file_excel = date('Y_m_d').'_'.$file_excel->getClientOriginalName();
+//         $path_file_excel = '/file_cust/'.$nama_file_excel;
+
+//         // Simpan file ke storage (public/storage/)
+//         $file_excel->move('file_cust', $nama_file_excel);
+        
+//         $headings = (new HeadingRowImport)->toArray(public_path().$path_file_excel);
+
+//         $headings = $headings[0][0];
+
+//         if($headings[0] == "id_customer" && $headings[1] == "nama" && $headings[2] == "alamat" && $headings[3] == "id_kelurahan"){
+//             $customer = Excel::toArray(new CustomerImport, public_path().$path_file_excel);
+//             // $data_customer[] = Customer::select('*')->get();
+//             $data = [];
+//             $old = [];
+
+//             for($i=0;$i<count($customer[0]);$i++){
+
+//                 $customer[0][$i]['id_customer'] = trim($customer[0][$i]['id_customer'],"'");
+
+//                 //mengecek apakah ada id customer di tabel customer. Jika tidak ada, data akan diinputkan.
+//                 // if($data_customer[0][$i]['ID_CUSTOMER'] != $customer[0][$i]['id_customer']){
+//                 if(!Customer::where('id_customer', $customer[0][$i]['id_customer'])->exists()){
+//                     $data[] = [
+//                         'id_customer' => $customer[0][$i]['id_customer'],
+//                         'nama' => $customer[0][$i]['nama'],
+//                         'alamat' => $customer[0][$i]['alamat'],
+//                         'id_kelurahan' => $customer[0][$i]['id_kelurahan']
+//                     ];
+//                 }
+//                 elseif(!Customer::where('nama', $customer[0][$i]['nama'])->exists()){
+//                     $old = $customer[0][$i]['id_customer'];
+//                 }
+                    
+//             }
+
+//             if($old == null){
+//                 Customer::insert($data);
+//                 return redirect('/customer');
+//             }else{
+//                 return redirect('/customer')->with('alert', $old);
+//             }
+
+//             //menghapus file excel
+//             Storage::disk('public')->delete($path_file_excel);
+//         }
+//         else{
+//             //menghapus file excel
+//             Storage::disk('public')->delete($path_file_excel);
+
+//             return Redirect::back()->with('alert', 'Mohon upload file excel sesuai format.');
+//         }
+//     }
+// }
