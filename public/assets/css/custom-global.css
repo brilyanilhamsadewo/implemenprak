@@ -1,0 +1,22 @@
+.header-logo {
+    width: 90vw;
+}
+  
+.header-logo img {
+    height: 28px;
+}
+
+.header-logo span {
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Smartphone Breakpoint */
+@media only screen and (max-width: 600px) {
+    
+    .table-responsive-stack {
+        font-size: 3vw !important;
+    }
+
+}

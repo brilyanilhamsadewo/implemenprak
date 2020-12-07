@@ -1,0 +1,117 @@
+table {
+    text-align: center;
+    font-weight: 500;   
+}
+
+table td {
+    word-wrap: break-word !important;
+    white-space: normal !important;
+}
+
+.input-num-sm {
+    width: 50%;
+    text-align: center;
+}
+
+.select2-container .select2-selection--single {
+    height: 2.5em !important;
+    display: flex;
+    align-items: center;
+}
+
+/* Disable arrow button pada input nomor telepon - Chrome, Safari, Edge, Opera */
+.num-without-style::-webkit-outer-spin-button,
+.num-without-style::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Disable arrow button pada input nomor telepon - Firefox */
+.num-without-style {
+  -moz-appearance: textfield;
+}
+
+.judul-tabel {
+    display: flex;
+}
+
+.judul-tabel button:hover,
+.judul-tabel a:hover {
+    background-color: rgb(68, 8, 38) !important;
+}
+
+.page-header > .d-flex {
+    justify-content: space-between;
+}
+
+.form-tambah-customer-col {
+    margin: auto;
+}
+
+.select-avatar-nav img {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+.wrapper-foto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 220px;
+    border: 2px dashed black;
+}
+
+.kontainer-foto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 200px;
+    border: 2px solid black;
+}
+
+.modal-foto-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 220px;
+    border: 2px dashed black;
+}
+
+.modal-foto-kontainer ,
+.modal-video-kontainer {
+    display: flex;
+    height: 150px;
+    width: 200px;
+    border: 2px solid black;
+}
+
+.detail-foto {
+    height: 150px;
+    width: 200px;
+    border: 1px solid black;
+}
+
+@media only screen and (max-width: 600px) {
+
+    table {
+        font-size: 1em;
+    }
+
+    .judul-tabel {
+        display: block;
+    }
+
+    .judul-tabel button {
+        margin-top: 10px;
+    }
+
+    .modal-foto-wrapper {
+        flex-direction: column;
+        height: 440px;
+    }
+
+}
