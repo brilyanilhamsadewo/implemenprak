@@ -18,3 +18,5 @@ Route::get('/titikKunjungan',  'lokasiController@titikKunjungan');
 Route::post('/LocationStore', 'lokasiController@store');
 Route::get('CetakBarcodeLokasi', 'lokasiController@cetak');
 Route::get('Toko/req-nama-toko/{id}','lokasiController@getNamaToko');
+
+Route::get('signin','AdminController@signin');
